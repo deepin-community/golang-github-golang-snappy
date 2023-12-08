@@ -1,15 +1,47 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-golang-snappy
+Section: golang
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Hilko Bengen <bengen@debian.org>,
+           Martín Ferrari <tincho@debian.org>,
+Build-Depends: debhelper-compat (= 13),
+               dh-golang (>= 1.17~),
+               golang-any,
+Standards-Version: 4.5.1
+Homepage: https://github.com/golang/snappy
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-golang-snappy
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-golang-snappy.git
+XS-Go-Import-Path: github.com/golang/snappy
+Rules-Requires-Root: no
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-golang-snappy-dev
+Architecture: all
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Replaces: golang-snappy-go-dev (<< 0.0+git20150730.723cc1e-3~),
+Breaks: golang-snappy-go-dev (<< 0.0+git20150730.723cc1e-3~),
+Provides: golang-snappy-go-dev,
+Multi-Arch: foreign
+Description: Implementation of the Snappy compression format in Go
+ Snappy is a compression/decompression library. It does not aim for maximum
+ compression, or compatibility with any other compression library; instead, it
+ aims for very high speeds and reasonable compression. For instance, compared
+ to the fastest mode of zlib, Snappy is an order of magnitude faster for most
+ inputs, but the resulting compressed files are anywhere from 20% to 100%
+ bigger. On a single core of a Core i7 processor in 64-bit mode, Snappy
+ compresses at about 250 MB/sec or more and decompresses at about 500 MB/sec or
+ more.
+ .
+ This is an implementation of the Snappy compression format in the Go
+ programming language.
+
+Package: golang-snappy-go-dev
+Section: oldlibs
+Architecture: all
+Depends: golang-github-golang-snappy-dev,
+         ${misc:Depends},
+Multi-Arch: foreign
+Description: Transitional package for golang-github-golang-snappy-dev
+ This is a transitional package to ease upgrades to the
+ golang-github-golang-snappy-dev package. It can safely be removed.

@@ -1,5 +1,97 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-golang-snappy (0.0.2-3) unstable; urgency=medium
 
-  * Initial release
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + golang-snappy-go-dev: Add Multi-Arch: foreign.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Wed, 23 Nov 2022 23:45:48 +0000
+
+golang-github-golang-snappy (0.0.2-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix failure on go1.16 and 32bit system
+    + Backport upstream patch for go1.16
+    + Skip failed test on 32bit system
+      The new test doesn't pass on old version too.
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 31 Jan 2021 22:45:02 +0800
+
+golang-github-golang-snappy (0.0.2-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints.
+    + golang-github-golang-snappy-dev: Add Multi-Arch: foreign.
+
+  [ Shengjing Zhu ]
+  * New upstream version
+  * Add uscan watch file
+  * Update Section to golang
+  * Bump debhelper-compat to 13
+  * Update Standards-Version to 4.5.1 (no changes)
+  * Add Rules-Requires-Root
+  * Add autopkgtest-go
+  * Remove unused dpkg source local-options
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 31 Jan 2021 04:54:08 +0800
+
+golang-github-golang-snappy (0.0+git20160529.d9eb7a3-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Martín Ferrari ]
+  * Fix versioned dep on dh-golang.
+
+  [ Paul Tagliamonte ]
+  * Remove Built-Using from arch:all -dev package
+
+  [ Alexandre Viau ]
+  * Point Vcs-* urls to salsa.debian.org.
+
+  [ Dr. Tobias Quathamer ]
+  * Use debhelper v11
+  * Update team name
+  * Update to Standards-Version 4.2.1
+    - Use HTTPS URL for d/copyright
+    - Use Priority: optional
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Fri, 30 Nov 2018 20:04:33 +0100
+
+golang-github-golang-snappy (0.0+git20160529.d9eb7a3-2) unstable; urgency=medium
+
+  * debian/control: Fix Vcs-* fields.
+  * debian/control: Remove golang-go dependency from -dev package.
+  * debian/control: Replace golang-go with golang-any in Build-Depends.
+
+ -- Martín Ferrari <tincho@debian.org>  Tue, 01 Nov 2016 01:18:23 +0000
+
+golang-github-golang-snappy (0.0+git20160529.d9eb7a3-1) unstable; urgency=medium
+
+  [ Paul Tagliamonte ]
+  * Team upload.
+  * Use a secure transport for the Vcs-Git and Vcs-Browser URL
+
+  [ Martín Ferrari ]
+  * New upstream release.
+  * debian/copyright: Add licensing info for testdata/Mark.Twain-Tom.Sawyer.txt
+  * debian/control: Update Standards-Version with no changes.
+  * debian/control: Depend on recent dh-golang, use XS-Go-Import-Path.
+  * debian/rules: Refresh.
+
+ -- Martín Ferrari <tincho@debian.org>  Thu, 08 Sep 2016 08:54:42 +0000
+
+golang-github-golang-snappy (0.0+git20150730.723cc1e-3) unstable; urgency=medium
+
+  * Merge in the conflicting golang-snappy-go package. Closes: #796838.
+    Change version numbering to match the older package.
+  * Add transitional package and all required boilerplate.
+  * debian/links: Add compatibility symlink for old library package
+    name.
+
+ -- Martín Ferrari <tincho@debian.org>  Tue, 25 Aug 2015 05:13:24 +0000
+
+golang-github-golang-snappy (0.0~git20150730.0.723cc1e-1) unstable; urgency=medium
+
+  * Initial release (Closes: #794596)
+
+ -- Hilko Bengen <bengen@debian.org>  Mon, 03 Aug 2015 22:02:12 +0200
